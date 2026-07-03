@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>What's New | Spotify</title>
+
+    <meta
+      name="description"
+      content="Discover everything new on Spotify including AI playlists, music videos, audiobooks, podcasts, Premium+, offline listening and more."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b0c0e;
+        --surface: #141519;
+        --surface2: #1c1e24;
+        --line: #2a2d33;
+
+        --green: #1ed760;
+        --greenDark: #159443;
+
+        --gold: #f6c453;
+
+        --text: #fff;
+        --muted: #aeb4bd;
+        --dim: #7e838c;
+
+        --radius: 18px;
+
+        --max: 1180px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+
+        font-family: Inter, sans-serif;
+
+        line-height: 1.6;
+
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: var(--max);
+
+        margin: auto;
+
+        padding: 0 24px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Sora, sans-serif;
+
+        line-height: 1.05;
+
+        letter-spacing: -0.03em;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      /* =======================
+
+Navigation
+
+======================= */
+
+      header {
+        position: sticky;
+
+        top: 0;
+
+        z-index: 999;
+
+        backdrop-filter: blur(18px);
+
+        background: rgba(10, 10, 12, 0.8);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        height: 72px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+      }
+
+      .brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        font-family: Sora;
+
+        font-weight: 800;
+
+        font-size: 1.25rem;
+      }
+
+      .logo {
+        width: 34px;
+
+        height: 34px;
+
+        border-radius: 50%;
+
+        background: var(--green);
+
+        display: grid;
+
+        place-items: center;
+      }
+
+      .logo svg {
+        width: 18px;
+
+        height: 18px;
+
+        fill: #04210f;
+      }
+
+      nav {
+        display: flex;
+
+        gap: 34px;
+      }
+
+      nav a {
+        color: var(--muted);
+
+        transition: 0.25s;
+      }
+
+      nav a:hover,
+      nav .active {
+        color: white;
+      }
+
+      .btn {
+        padding: 0.95rem 1.7rem;
+
+        border-radius: 999px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-weight: 600;
+
+        transition: 0.3s;
+      }
+
+      .btn-green {
+        background: var(--green);
+
+        color: #05250f;
+      }
+
+      .btn-green:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-gold {
+        background: var(--gold);
+
+        color: #241700;
+      }
+
+      /* =======================
+
+Hero
+
+======================= */
+
+      .hero {
+        padding: 80px 0;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+
+        position: absolute;
+
+        left: -10%;
+
+        top: -20%;
+
+        width: 700px;
+
+        height: 700px;
+
+        border-radius: 50%;
+
+        background: rgba(30, 215, 96, 0.15);
+
+        filter: blur(80px);
+      }
+
+      .heroGrid {
+        display: grid;
+
+        grid-template-columns: 1.1fr 0.9fr;
+
+        gap: 70px;
+
+        align-items: center;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+
+        letter-spacing: 0.15em;
+
+        font-size: 0.82rem;
+
+        font-family: Sora;
+
+        color: var(--green);
+
+        font-weight: 700;
+
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 5vw, 4.6rem);
+
+        margin-bottom: 22px;
+      }
+
+      .hero p {
+        color: var(--muted);
+
+        font-size: 1.15rem;
+
+        max-width: 600px;
+
+        margin-bottom: 34px;
+      }
+
+      .actions {
+        display: flex;
+
+        gap: 16px;
+
+        flex-wrap: wrap;
+      }
+
+      /* =======================
+
+Hero mockup
+
+======================= */
+
+      .phone {
+        background: linear-gradient(140deg, var(--surface2), var(--surface));
+
+        border: 1px solid var(--line);
+
+        border-radius: 28px;
+
+        padding: 22px;
+
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+      }
+
+      .screen {
+        aspect-ratio: 9/16;
+
+        border-radius: 22px;
+
+        background: linear-gradient(180deg, #0e1218, #141519);
+
+        padding: 24px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+      }
+
+      .album {
+        height: 280px;
+
+        border-radius: 20px;
+
+        background: linear-gradient(135deg, #1ed760, #0b6830);
+
+        display: grid;
+
+        place-items: center;
+
+        font-size: 5rem;
+      }
+
+      .song {
+        margin-top: 18px;
+      }
+
+      .song h3 {
+        font-size: 1.3rem;
+
+        margin-bottom: 6px;
+      }
+
+      .song p {
+        font-size: 0.95rem;
+
+        margin: 0;
+
+        color: var(--muted);
+      }
+
+      .progress {
+        height: 4px;
+
+        background: #30343b;
+
+        border-radius: 20px;
+
+        margin: 22px 0;
+
+        overflow: hidden;
+      }
+
+      .progress span {
+        display: block;
+
+        width: 58%;
+
+        height: 100%;
+
+        background: var(--green);
+      }
+
+      .controls {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 30px;
+
+        font-size: 2rem;
+      }
+
+      /* =======================
+
+Feature cards
+
+======================= */
+
+      .grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 24px;
+
+        margin-top: 55px;
+      }
+
+      .card {
+        background: var(--surface);
+
+        border: 1px solid var(--line);
+
+        border-radius: var(--radius);
+
+        padding: 32px;
+
+        transition: 0.35s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+
+        border-color: #444;
+      }
+
+      .icon {
+        width: 56px;
+
+        height: 56px;
+
+        border-radius: 14px;
+
+        background: rgba(30, 215, 96, 0.12);
+
+        display: grid;
+
+        place-items: center;
+
+        font-size: 1.6rem;
+
+        margin-bottom: 22px;
+      }
+
+      .card h3 {
+        margin-bottom: 12px;
+
+        font-size: 1.35rem;
+      }
+
+      .card p {
+        color: var(--muted);
+      }
+
+      .reveal {
+        opacity: 0;
+
+        transform: translateY(35px);
+
+        transition: 0.8s;
+      }
+
+      .reveal.show {
+        opacity: 1;
+
+        transform: none;
+      }
+
+      @media (max-width: 900px) {
+        .heroGrid {
+          grid-template-columns: 1fr;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="index.html">
+          <div class="logo">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+
+          Spotify
+        </a>
+
+        <nav>
+          <a href="index.html">Home</a>
+
+          <a href="product.html" class="active">What's New</a>
+
+          <a href="pricing.html">Plans</a>
+
+          <a href="trust.html">Why Spotify</a>
+        </nav>
+
+        <a href="pricing.html" class="btn btn-green"> Start Free </a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <div class="eyebrow">What's New</div>
+
+          <h1>Everything you love. Now even bigger.</h1>
+
+          <p>
+            Spotify has evolved into more than music. Discover music videos, AI
+            playlists, audiobooks, premium fan experiences, creator content,
+            live events and smarter recommendations—all inside one beautiful
+            app.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-green" href="pricing.html"> Explore Premium </a>
+
+            <a class="btn btn-gold" href="trust.html"> Why Spotify </a>
+          </div>
+        </div>
+
+        <div class="phone">
+          <div class="screen">
+            <div>
+              <div class="album">🎵</div>
+
+              <div class="song">
+                <h3>Midnight Drive</h3>
+
+                <p>Spotify Originals</p>
+              </div>
+
+              <div class="progress">
+                <span></span>
+              </div>
+            </div>
+
+            <div class="controls">⏮ ▶ ⏭</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="eyebrow reveal">New Features</div>
+
+        <h2 class="reveal">Everything happens in one app.</h2>
+
+        <div class="grid" ></div>
+        <div class="card reveal">
+            <div class="icon">
+            🎬
+            </div>
+
+            <h3>Music Videos</h3>
+
+            <p>
+
+            Switch instantly from listening to watching.
+            Enjoy official music videos without leaving
+            your playlist.
+
+            </p>
+
+        </div>
+
+        <div class="card reveal">
+
+            <div class="icon">
+            🤖
+            </div>
+
+            <h3>AI Playlists</h3>
+
+            <p>
+                Describe your mood in natural language and Spotify builds the perfect playlist just for you.
+            </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+        📚
+        </div>
+
+        <h3>Audiobooks</h3>
+
+        <p>
+
+        Millions of stories and best sellers now live
+        alongside your favourite artists.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+        🎙
+        </div>
+
+        <h3>Video Podcasts</h3>
+
+        <p>
+
+        Watch or listen seamlessly with automatic
+        switching between audio and video whenever you
+        want.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+        ⭐
+        </div>
+
+        <h3>Premium+</h3>
+
+        <p>
+
+        Exclusive fan experiences including concert
+        presales, backstage content and early releases.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+        🎧
+        </div>
+
+        <h3>HiFi Audio</h3>
+
+        <p>
+
+        Experience richer, studio-quality sound with
+        lossless streaming on compatible devices.
+
+        </p>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+
+        <section>
+
+        <div class="wrap heroGrid">
+
+        <div class="phone reveal">
+
+        <div class="screen">
+
+        <div class="album"
+        style="background:linear-gradient(135deg,#F6C453,#D58E14);">
+
+        🎥
+
+        </div>
+
+        <div class="song">
+
+        <h3>Official Music Video</h3>
+
+        <p>
+
+        Watch instantly without opening another app.
+
+        </p>
+
+        </div>
+
+        <div class="progress">
+
+        <span style="width:72%;"></span>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        <div>
+
+        <div class="eyebrow reveal">
+
+        Watch
+
+        </div>
+
+        <h2 class="reveal">
+
+        Music becomes visual.
+
+        </h2>
+
+        <p class="reveal">
+
+        Enjoy official music videos from thousands of
+        artists.
+
+        Switch from audio to video instantly without
+        interrupting playback.
+
+        Create playlists containing both songs and
+        videos.
+
+        Discover exclusive live performances and
+        behind-the-scenes footage.
+
+        </p>
+
+        <div class="actions reveal">
+
+        <a href="pricing.html"
+        class="btn btn-green">
+
+        Watch Now
+
+        </a>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+
+        <section>
+
+        <div class="wrap heroGrid">
+
+        <div>
+
+        <div class="eyebrow reveal">
+
+        Podcasts
+
+        </div>
+
+        <h2 class="reveal">
+
+        Watch.
+        Listen.
+        Continue anywhere.
+
+        </h2>
+
+        <p class="reveal">
+
+        Whether you're driving, walking or relaxing at
+        home, Spotify intelligently switches between
+        video and audio depending on how you want to
+        consume your favourite creators.
+
+        Enjoy millions of podcast episodes with smart
+        recommendations powered by your interests.
+
+        </p>
+
+        <ul style="margin-top:30px;color:var(--muted);line-height:2;">
+
+        <li>✔ Video & Audio Sync</li>
+
+        <li>✔ Resume across every device</li>
+
+        <li>✔ Background playback</li>
+
+        <li>✔ Download episodes offline</li>
+
+        </ul>
+
+        </div>
+
+        <div class="phone reveal">
+
+        <div class="screen">
+
+        <div class="album"
+        style="background:linear-gradient(135deg,#6B4CF6,#3822A6);">
+
+        🎙
+
+        </div>
+
+        <div class="song">
+
+        <h3>The Daily Tech Show</h3>
+
+        <p>
+
+        Episode 224 · Video Podcast
+
+        </p>
+
+        </div>
+
+        <div class="progress">
+
+        <span style="width:41%;"></span>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+
+        <section>
+
+        <div class="wrap">
+
+        <div class="eyebrow reveal">
+
+        Reading
+
+        </div>
+
+        <h2 class="reveal">
+
+        Audiobooks included.
+
+        </h2>
+
+        <p class="reveal"
+        style="max-width:700px;margin-top:20px;color:var(--muted);">
+
+        Discover thousands of bestselling books,
+        classics, business titles and inspiring stories.
+        Your reading and listening progress sync
+        automatically across all your devices.
+
+        </p>
+
+        <div class="grid">
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        📖
+
+        </div>
+
+        <h3>Bestsellers</h3>
+
+        <p>
+
+        Listen to award-winning books from the world's
+        most popular authors.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        🌍
+
+        </div>
+
+        <h3>Global Library</h3>
+
+        <p>
+
+        Explore books in multiple languages and genres.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        📥
+
+        </div>
+
+        <h3>Offline Reading</h3>
+
+        <p>
+
+        Download books and continue listening anywhere.
+
+        </p>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section> 
+        <section>
+
+        <div class="wrap heroGrid">
+
+        <div>
+
+        <div class="eyebrow reveal">
+
+        Artificial Intelligence
+
+        </div>
+
+        <h2 class="reveal">
+
+        Meet your personal AI DJ.
+
+        </h2>
+
+        <p class="reveal">
+
+        Spotify understands your listening habits and
+        creates an experience unique to you.
+
+        From AI-generated playlists to your own
+        personal DJ, discovering new music has never
+        felt this natural.
+
+        </p>
+
+        <ul style="margin-top:28px;line-height:2;color:var(--muted);">
+
+        <li>✔ AI DJ commentary</li>
+
+        <li>✔ Natural-language playlists</li>
+
+        <li>✔ Daily Mix improvements</li>
+
+        <li>✔ Discover Weekly powered by AI</li>
+
+        <li>✔ Smarter recommendations every day</li>
+
+        </ul>
+
+        <div class="actions reveal" style="margin-top:35px;">
+
+        <a href="pricing.html"
+        class="btn btn-green">
+
+        Experience AI
+
+        </a>
+
+        </div>
+
+        </div>
+
+        <div class="phone reveal">
+
+        <div class="screen">
+
+        <div class="album"
+        style="background:linear-gradient(135deg,#00C6FF,#0072FF);">
+
+        🤖
+
+        </div>
+
+        <div class="song">
+
+        <h3>Your AI DJ</h3>
+
+        <p>
+
+        Playing songs picked just for you.
+
+        </p>
+
+        </div>
+
+        <div class="progress">
+
+        <span style="width:66%;"></span>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+
+        <section>
+
+        <div class="wrap">
+
+        <div class="eyebrow reveal">
+
+        Spotify Connect
+
+        </div>
+
+        <h2 class="reveal">
+
+        Switch devices instantly.
+
+        </h2>
+
+        <p class="reveal"
+        style="max-width:760px;margin-top:18px;color:var(--muted);">
+
+        Move your music from your phone to your laptop,
+        gaming console, smart TV, tablet, smart watch
+        or speaker without restarting playback.
+
+        One tap is all it takes.
+
+        </p>
+
+        <div class="grid">
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        📱
+
+        </div>
+
+        <h3>Mobile</h3>
+
+        <p>
+
+        Continue listening while travelling.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        💻
+
+        </div>
+
+        <h3>Desktop</h3>
+
+        <p>
+
+        Control playback from your computer with full
+        library access.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        📺
+
+        </div>
+
+        <h3>TV & Speakers</h3>
+
+        <p>
+
+        Play music throughout your home with Spotify
+        Connect.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        ⌚
+
+        </div>
+
+        <h3>Smart Watch</h3>
+
+        <p>
+
+        Download playlists directly to your wearable
+        device.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        🎮
+
+        </div>
+
+        <h3>Gaming</h3>
+
+        <p>
+
+        Keep your soundtrack playing while gaming on
+        supported consoles.
+
+        </p>
+
+        </div>
+
+        <div class="card reveal">
+
+        <div class="icon">
+
+        🚗
+
+        </div>
+
+        <h3>In the Car</h3>
+
+        <p>
+
+        Enjoy hands-free listening with Android Auto
+        and Apple CarPlay.
+
+        </p>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+
+        <section>
+
+        <div class="wrap heroGrid">
+
+        <div class="phone reveal">
+
+        <div class="screen">
+
+        <div class="album"
+        style="background:linear-gradient(135deg,#FF4D6D,#D0004B);">
+
+        🎤
+
+        </div>
+
+        <div class="song">
+
+        <h3>Lyrics Mode</h3>
+
+        <p>
+
+        Sing along with synchronized lyrics.
+
+        </p>
+
+        </div>
+
+        <div class="progress">
+
+        <span style="width:83%;"></span>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        <div>
+
+        <div class="eyebrow reveal">
+
+        Lyrics
+
+        </div>
+
+        <h2 class="reveal">
+
+        Every word.
+        Right on time.
+
+        </h2>
+
+        <p class="reveal">
+
+        Follow synchronized lyrics while your favourite
+        songs play.
+
+        Perfect for karaoke nights, learning new songs,
+        or simply understanding every lyric.
+
+        Available on millions of tracks.
+
+        </p>
+
+        <ul style="margin-top:28px;line-height:2;color:var(--muted);">
+
+        <li>✔ Real-time lyrics</li>
+
+        <li>✔ Full-screen karaoke mode</li>
+
+        <li>✔ Share lyric cards</li>
+
+        <li>✔ Translate supported songs</li>
+
+        </ul>
+
+        </div>
+
+        </div>
+
+        </section>
+
+        <section>
+
+        <div class="wrap">
+
+        <div class="eyebrow reveal">
+
+        By the Numbers
+
+        </div>
+
+        <h2 class="reveal">
+
+        Spotify keeps growing.
+
+        </h2>
+
+        <div class="grid" style="margin-top:50px;">
+
+        <div class="card reveal"
+        style="text-align:center;">
+
+        <h2 style="font-size:3rem;color:var(--green);">
+
+        751M+
+
+        </h2>
+
+        <p>
+
+        Monthly Active Users
+
+        </p>
+
+        </div>
+
+        <div class="card reveal"
+        style="text-align:center;">
+
+        <h2 style="font-size:3rem;color:var(--green);">
+
+        290M+
+
+        </h2>
+
+        <p>
+
+        Premium Subscribers
+
+        </p>
+
+        </div>
+
+        <div class="card reveal"
+        style="text-align:center;">
+
+        <h2 style="font-size:3rem;color:var(--green);">
+
+        100M+
+
+        </h2>
+
+        <p>
+
+        Songs
+
+        </p>
+
+        </div>
+
+        <div class="card reveal"
+        style="text-align:center;">
+
+        <h2 style="font-size:3rem;color:var(--green);">
+
+        7M+
+
+        </h2>
+
+        <p>
+
+        Podcast Titles
+
+        </p>
+
+        </div>
+
+        <div class="card reveal"
+        style="text-align:center;">
+
+        <h2 style="font-size:3rem;color:var(--green);">
+
+        350K+
+
+        </h2>
+
+        <p>
+
+        Audiobooks
+
+        </p>
+
+        </div>
+
+        <div class="card reveal"
+        style="text-align:center;">
+
+        <h2 style="font-size:3rem;color:var(--green);">
+
+        180+
+
+        </h2>
+
+        <p>
+
+        Countries & Regions
+
+        </p>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+        <section>
+            <div class="wrap heroGrid"><div>
+
+            <div class="eyebrow reveal">
+
+            Premium+
+
+            </div>
+
+            <h2 class="reveal">
+
+            For the biggest fans.
+
+            </h2>
+
+            <p class="reveal">
+
+            Premium+ gives your fandom a front-row seat.
+
+            Unlock concert presales, exclusive artist drops,
+            behind-the-scenes content, early releases,
+            HiFi audio and future premium experiences—all
+            designed for listeners who want to go beyond
+            streaming.
+
+            </p>
+
+            <ul style="margin-top:28px;line-height:2;color:var(--muted);">
+
+            <li>✔ Early access to tickets</li>
+
+            <li>✔ Exclusive artist content</li>
+
+            <li>✔ HiFi / Lossless streaming</li>
+
+            <li>✔ VIP listening experiences</li>
+
+            <li>✔ Future Premium+ features</li>
+
+            </ul>
+
+            <div class="actions reveal" style="margin-top:35px;">
+
+            <a href="pricing.html"
+            class="btn btn-green">
+
+            Upgrade to Premium+
+
+            </a>
+
+            </div>
+
+            </div>
+
+            <div class="phone reveal">
+
+            <div class="screen">
+
+            <div class="album"
+            style="background:linear-gradient(135deg,#F6C453,#E09A15);">
+
+            ⭐
+
+            </div>
+
+            <div class="song">
+
+            <h3>Premium+</h3>
+
+            <p>
+
+            Built for superfans.
+
+            </p>
+
+            </div>
+
+            <div class="progress">
+
+            <span style="width:91%;"></span>
+
+            </div>
+
+            </div>
+
+            </div>
+
+            </div>
+
+        </section>
+        <section>
+
+            <div class="wrap">
+
+            <div style="
+            background:linear-gradient(135deg,
+            rgba(30,215,96,.12),
+            rgba(246,196,83,.10));
+            border:1px solid var(--line);
+            border-radius:28px;
+            padding:70px 40px;
+            text-align:center;
+            ">
+
+            <div class="eyebrow">
+
+            Ready?
+
+            </div>
+
+            <h2 style="
+            font-size:clamp(2.3rem,4vw,3.5rem);
+            margin:18px 0;
+            ">
+
+            Everything you love.
+
+            One subscription.
+
+            </h2>
+
+            <p style="
+            max-width:720px;
+            margin:0 auto 35px;
+            color:var(--muted);
+            font-size:1.08rem;
+            ">
+
+            Whether you're discovering new artists,
+            watching exclusive videos, enjoying audiobooks,
+            or listening offline, Spotify brings your
+            entertainment together in one place.
+
+            </p>
+
+            <div class="actions"
+            style="justify-content:center;">
+
+            <a href="pricing.html"
+            class="btn btn-green">
+
+            Start Free
+
+            </a>
+
+            <a href="trust.html"
+            class="btn btn-gold">
+
+            Why Spotify
+
+            </a>
+
+            </div>
+
+            </div>
+
+            </div>
+
+        </section>
+        <footer
+            style="
+            border-top:1px solid var(--line);
+            padding:60px 0;
+            ">
+
+            <div class="wrap">
+
+            <div style="
+            display:flex;
+            justify-content:space-between;
+            gap:50px;
+            flex-wrap:wrap;
+            ">
+
+            <div>
+
+            <div class="brand">
+
+            <div class="logo">
+
+            <svg viewBox="0 0 24 24">
+
+            <path d="M8 5v14l11-7z"/>
+
+            </svg>
+
+            </div>
+
+            Spotify
+
+            </div>
+
+            <p style="
+            margin-top:18px;
+            max-width:320px;
+            color:var(--muted);
+            ">
+
+            The world's leading platform for music,
+            podcasts, audiobooks and creator experiences.
+
+            </p>
+
+            </div>
+
+            <div style="
+            display:flex;
+            gap:60px;
+            flex-wrap:wrap;
+            ">
+
+            <div>
+
+            <h4 style="
+            font-family:Sora;
+            margin-bottom:15px;
+            ">
+
+            Product
+
+            </h4>
+
+            <p><a href="product.html">What's New</a></p>
+
+            <p><a href="pricing.html">Premium</a></p>
+
+            <p><a href="pricing.html">Premium+</a></p>
+
+            </div>
+
+            <div>
+
+            <h4 style="
+            font-family:Sora;
+            margin-bottom:15px;
+            ">
+
+            Company
+
+            </h4>
+
+            <p><a href="trust.html">Why Spotify</a></p>
+
+            <p><a href="index.html">Home</a></p>
+
+            <p><a href="#">Support</a></p>
+
+            </div>
+
+            <div>
+
+            <h4 style="
+            font-family:Sora;
+            margin-bottom:15px;
+            ">
+
+            Plans
+
+            </h4>
+
+            <p><a href="pricing.html">Free</a></p>
+
+            <p><a href="pricing.html">Premium</a></p>
+
+            <p><a href="pricing.html">Premium+</a></p>
+
+            </div>
+
+            </div>
+
+            </div>
+
+            <div
+            style="
+            margin-top:45px;
+            padding-top:25px;
+            border-top:1px solid var(--line);
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            color:var(--dim);
+            font-size:.9rem;
+            ">
+
+            <div>
+
+            © 2026 Spotify — Concept microsite.
+
+            </div>
+
+            <div>
+
+            Created for an academic MBA marketing project.
+
+            </div>
+
+            </div>
+
+            </div>
+
+        </footer>
+        <script>
+
+        const observer=new IntersectionObserver(entries=>{
+
+        entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+        entry.target.classList.add("show");
+
+        }
+
+        });
+
+        },{
+        threshold:.15
+        });
+
+        document.querySelectorAll(".reveal").forEach(el=>{
+
+        observer.observe(el);
+
+        });
+
+        </script>
+
+        </body>
+
+        </html>
+      </div>
+    </section>
+  </body>
+</html>

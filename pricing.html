@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Spotify Premium Plans</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b0c0e;
+
+        --surface: #141519;
+
+        --surface2: #1d1f24;
+
+        --line: #2b2e34;
+
+        --green: #1ed760;
+
+        --gold: #f6c453;
+
+        --text: #fff;
+
+        --muted: #aeb4bd;
+
+        --radius: 18px;
+
+        --max: 1180px;
+      }
+
+      * {
+        margin: 0;
+
+        padding: 0;
+
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+
+        font-family: Inter, sans-serif;
+
+        color: var(--text);
+
+        overflow-x: hidden;
+
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+
+        text-decoration: none;
+      }
+
+      .wrap {
+        max-width: var(--max);
+
+        margin: auto;
+
+        padding: 0 24px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Sora, sans-serif;
+
+        line-height: 1.05;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      /* NAVIGATION */
+
+      header {
+        position: sticky;
+
+        top: 0;
+
+        z-index: 999;
+
+        background: rgba(10, 10, 12, 0.82);
+
+        backdrop-filter: blur(16px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        height: 72px;
+      }
+
+      .brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        font-family: Sora;
+
+        font-size: 1.25rem;
+
+        font-weight: 800;
+      }
+
+      .logo {
+        width: 34px;
+
+        height: 34px;
+
+        border-radius: 50%;
+
+        background: var(--green);
+
+        display: grid;
+
+        place-items: center;
+      }
+
+      .logo svg {
+        width: 18px;
+
+        fill: #06250f;
+      }
+
+      nav {
+        display: flex;
+
+        gap: 32px;
+      }
+
+      nav a {
+        color: var(--muted);
+
+        transition: 0.3s;
+      }
+
+      nav a:hover,
+      nav .active {
+        color: white;
+      }
+
+      .btn {
+        padding: 1rem 1.8rem;
+
+        border-radius: 999px;
+
+        font-weight: 600;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        transition: 0.3s;
+      }
+
+      .btnGreen {
+        background: var(--green);
+
+        color: #04220f;
+      }
+
+      .btnGold {
+        background: var(--gold);
+
+        color: #241600;
+      }
+
+      /* HERO */
+
+      .hero {
+        text-align: center;
+
+        padding: 110px 0 90px;
+      }
+
+      .eyebrow {
+        color: var(--green);
+
+        text-transform: uppercase;
+
+        font-family: Sora;
+
+        letter-spacing: 0.16em;
+
+        font-size: 0.8rem;
+
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 5vw, 4.8rem);
+
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        max-width: 720px;
+
+        margin: auto;
+
+        color: var(--muted);
+
+        font-size: 1.1rem;
+      }
+
+      /* Pricing */
+
+      .plans {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 30px;
+
+        margin-top: 70px;
+      }
+
+      .plan {
+        background: var(--surface);
+
+        border: 1px solid var(--line);
+
+        border-radius: 22px;
+
+        padding: 36px;
+
+        transition: 0.35s;
+
+        position: relative;
+      }
+
+      .plan:hover {
+        transform: translateY(-10px);
+      }
+
+      .featured {
+        border: 2px solid var(--gold);
+
+        background: linear-gradient(
+          180deg,
+          rgba(246, 196, 83, 0.08),
+          var(--surface)
+        );
+      }
+
+      .badge {
+        position: absolute;
+
+        top: -14px;
+
+        left: 28px;
+
+        background: var(--gold);
+
+        color: #241600;
+
+        padding: 7px 15px;
+
+        border-radius: 999px;
+
+        font-size: 0.78rem;
+
+        font-weight: 700;
+      }
+
+      .plan h2 {
+        font-size: 1.7rem;
+
+        margin-bottom: 15px;
+      }
+
+      .price {
+        font-size: 3rem;
+
+        font-family: Sora;
+
+        font-weight: 800;
+
+        margin-bottom: 6px;
+      }
+
+      .price span {
+        font-size: 1rem;
+
+        color: var(--muted);
+      }
+
+      .desc {
+        color: var(--muted);
+
+        margin-bottom: 28px;
+
+        min-height: 50px;
+      }
+
+      .plan ul {
+        list-style: none;
+
+        margin-bottom: 35px;
+      }
+
+      .plan li {
+        margin-bottom: 14px;
+
+        color: var(--muted);
+      }
+
+      .plan .btn {
+        width: 100%;
+      }
+
+      .reveal {
+        opacity: 0;
+
+        transform: translateY(40px);
+
+        transition: 0.8s;
+      }
+
+      .reveal.show {
+        opacity: 1;
+
+        transform: none;
+      }
+
+      /* ===================== COMPARISON TABLE ===================== */
+      .comparison {
+        overflow-x: auto;
+        margin-top: 40px;
+      }
+
+      .comparison table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 720px;
+        background: #171717;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .comparison th,
+      .comparison td {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+      }
+
+      .comparison th:first-child,
+      .comparison td:first-child {
+        text-align: left;
+        font-weight: 600;
+      }
+
+      .comparison th {
+        background: #202020;
+        color: white;
+      }
+
+      .comparison tr:hover {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      /* ===================== FAQ ===================== */
+
+      .faq {
+        max-width: 900px;
+        margin: 50px auto 0;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.05rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 0;
+        cursor: pointer;
+      }
+
+      .faq-question span {
+        font-size: 1.5rem;
+        transition: 0.3s;
+      }
+
+      .faq-answer {
+        display: none;
+        padding-bottom: 20px;
+        color: #b8b8b8;
+        line-height: 1.7;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      .faq-item.active .faq-question span {
+        transform: rotate(45deg);
+      }
+      /* FOOTER */
+      .ft {
+        border-top: 1px solid var(--line);
+        padding: 55px 0 40px;
+        margin-top: 30px;
+      }
+
+      .ft-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .ft-links {
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap;
+      }
+
+      .ft-col h5 {
+        font-family: Sora;
+        color: #777;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+      }
+
+      .ft-col a {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--muted);
+      }
+
+      .ft-col a:hover {
+        color: white;
+      }
+
+      .ft-bot {
+        margin-top: 35px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .plans {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .ft-top {
+          flex-direction: column;
+        }
+
+        .ft-bot {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a href="index.html" class="brand">
+          <div class="logo">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+
+          Spotify
+        </a>
+
+        <nav>
+          <a href="index.html"> Home </a>
+
+          <a href="product.html"> What's New </a>
+
+          <a href="pricing.html" class="active"> Plans </a>
+
+          <a href="trust.html"> Why Spotify </a>
+        </nav>
+
+        <a href="#plans" class="btn btnGreen"> Start Free </a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Plans</div>
+
+        <h1>Choose your soundtrack.</h1>
+
+        <p>
+          Whether you're discovering new music, binge-watching video podcasts,
+          or enjoying exclusive fan experiences, there's a Spotify plan made for
+          you.
+        </p>
+
+        <div class="plans reveal" id="plans">
+          <!-- FREE -->
+          <div class="plan">
+            <h2>Free</h2>
+
+            <div class="price">$0 <span>/ month</span></div>
+
+            <p class="desc">Great for discovering music with occasional ads.</p>
+
+            <ul>
+              <li>✔ Millions of songs</li>
+              <li>✔ Podcasts & video podcasts</li>
+              <li>✔ Shuffle play</li>
+              <li>✔ Personalized recommendations</li>
+              <li>✖ Offline listening</li>
+              <li>✖ Unlimited skips</li>
+            </ul>
+
+            <a href="#" class="btn btnGreen"> Get Started </a>
+          </div>
+
+          <!-- PREMIUM -->
+          <div class="plan">
+            <h2>Premium</h2>
+
+            <div class="price">
+              $11.99
+              <span>/ month</span>
+            </div>
+
+            <p class="desc">
+              Enjoy uninterrupted listening with all the essentials.
+            </p>
+
+            <ul>
+              <li>✔ Ad-free music</li>
+              <li>✔ Offline downloads</li>
+              <li>✔ Unlimited skips</li>
+              <li>✔ High quality audio</li>
+              <li>✔ Full audiobooks</li>
+              <li>✔ Video podcasts</li>
+            </ul>
+
+            <a href="#" class="btn btnGreen"> Try Free </a>
+          </div>
+
+          <!-- PREMIUM PLUS -->
+          <div class="plan featured">
+            <div class="badge">BEST VALUE</div>
+
+            <h2>Premium+</h2>
+
+            <div class="price">
+              $18.99
+              <span>/ month</span>
+            </div>
+
+            <p class="desc">
+              Built for superfans who want exclusive experiences.
+            </p>
+
+            <ul>
+              <li>✔ Everything in Premium</li>
+              <li>✔ Highest quality audio</li>
+              <li>✔ Concert presales</li>
+              <li>✔ Exclusive fan content</li>
+              <li>✔ Artist livestreams</li>
+              <li>✔ Priority support</li>
+            </ul>
+
+            <a href="#" class="btn btnGold"> Upgrade Now </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===================== PLAN COMPARISON ===================== -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Compare</span>
+          <h2>Choose the plan that fits you.</h2>
+        </div>
+
+        <div class="comparison reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>Free</th>
+                <th>Premium</th>
+                <th>Premium+</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Ad-free music</td>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+
+              <tr>
+                <td>Offline downloads</td>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+
+              <tr>
+                <td>Unlimited skips</td>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+
+              <tr>
+                <td>High quality audio</td>
+                <td>Standard</td>
+                <td>High</td>
+                <td>Highest</td>
+              </tr>
+
+              <tr>
+                <td>Video podcasts</td>
+                <td>Limited</td>
+                <td>Full</td>
+                <td>Full</td>
+              </tr>
+
+              <tr>
+                <td>Audiobooks</td>
+                <td>Preview</td>
+                <td>Included</td>
+                <td>Included</td>
+              </tr>
+
+              <tr>
+                <td>Concert presales</td>
+                <td>—</td>
+                <td>—</td>
+                <td>✔</td>
+              </tr>
+
+              <tr>
+                <td>Exclusive fan content</td>
+                <td>—</td>
+                <td>—</td>
+                <td>✔</td>
+              </tr>
+
+              <tr>
+                <td>Priority support</td>
+                <td>—</td>
+                <td>—</td>
+                <td>✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- ===================== FAQ ===================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Questions</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Can I cancel anytime?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              Yes. Premium plans can be cancelled at any time and your
+              subscription will remain active until the end of the current
+              billing period.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Do students receive discounts?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              Eligible students receive discounted Premium pricing after
+              verification.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Can I switch plans later?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              Absolutely. Upgrade or downgrade your plan whenever you like from
+              your account settings.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Does Premium+ include everything in Premium?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              Yes. Premium+ includes every Premium feature plus early concert
+              access, exclusive artist experiences, premium merchandise offers
+              and more.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer style="border-top: 1px solid var(--line); padding: 60px 0">
+      <div class="wrap">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <div class="brand">
+              <div class="logo">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+
+              Spotify
+            </div>
+
+            <p style="margin-top: 18px; max-width: 320px; color: var(--muted)">
+              The world's leading platform for music, podcasts, audiobooks and
+              creator experiences.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 60px; flex-wrap: wrap">
+            <div>
+              <h4 style="font-family: Sora; margin-bottom: 15px">Product</h4>
+
+              <p><a href="product.html">What's New</a></p>
+
+              <p><a href="pricing.html">Premium</a></p>
+
+              <p><a href="pricing.html">Premium+</a></p>
+            </div>
+
+            <div>
+              <h4 style="font-family: Sora; margin-bottom: 15px">Company</h4>
+
+              <p><a href="trust.html">Why Spotify</a></p>
+
+              <p><a href="index.html">Home</a></p>
+
+              <p><a href="#">Support</a></p>
+            </div>
+
+            <div>
+              <h4 style="font-family: Sora; margin-bottom: 15px">Plans</h4>
+
+              <p><a href="pricing.html">Free</a></p>
+
+              <p><a href="pricing.html">Premium</a></p>
+
+              <p><a href="pricing.html">Premium+</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: var(--dim);
+            font-size: 0.9rem;
+          "
+        >
+          <div>© 2026 Spotify — Concept microsite.</div>
+
+          <div>Created for an academic MBA marketing project.</div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Reveal animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // FAQ
+
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.parentElement;
+
+          item.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

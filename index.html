@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Spotify Concept – Home</title>
+    <meta
+      name="description"
+      content="Academic Spotify-inspired microsite home page."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b0c0e;
+        --card: #16181d;
+        --line: #2a2d33;
+        --text: #fff;
+        --muted: #adb3bc;
+        --green: #1ed760;
+        --gold: #f5c451;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px Inter, sans-serif;
+      }
+      .wrap {
+        max-width: 1160px;
+        margin: auto;
+        padding: 0 24px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: #0b0c0ee8;
+        border-bottom: 1px solid var(--line);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+      .logo {
+        font: 800 1.3rem Sora, sans-serif;
+      }
+      .btn {
+        background: var(--green);
+        padding: 12px 20px;
+        border-radius: 999px;
+        color: #041;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .hero {
+        padding: 90px 0;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+      }
+      h1 {
+        font: 800 clamp(2.8rem, 6vw, 4.8rem) Sora, sans-serif;
+        margin: 0;
+      }
+      .green {
+        color: var(--green);
+      }
+      .gold {
+        color: var(--gold);
+      }
+      .lead {
+        color: var(--muted);
+        font-size: 1.15rem;
+        max-width: 42rem;
+      }
+      .player {
+        background: linear-gradient(135deg, #1d1f25, #111);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px;
+      }
+      .art {
+        aspect-ratio: 1;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--green), #0e7a38);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: var(--card);
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+        margin: 50px 0;
+      }
+      .stat {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 18px;
+        text-align: center;
+      }
+      .stat b {
+        display: block;
+        font: 800 2rem Sora;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 40px 0;
+        color: var(--muted);
+        margin-top: 60px;
+      }
+      @media (max-width: 850px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <nav>
+          <div class="logo">Spotify</div>
+          <div>
+            <a class="btn" href="pricing.html">Start Free</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="wrap hero">
+      <div>
+        <p
+          style="
+            color: var(--green);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+          "
+        >
+          Now with Music, Video & Audiobooks
+        </p>
+        <h1>
+          Hear it. <span class="green">See it.</span>
+          <span class="gold">Belong to it.</span>
+        </h1>
+        <p class="lead">
+          Discover millions of songs, podcasts, video episodes and audiobooks in
+          one beautifully personalised experience. Built as an academic concept
+          microsite.
+        </p>
+        <p><a class="btn" href="pricing.html">Start Listening</a></p>
+
+        <div class="stats">
+          <div class="stat"><b>751M+</b>Monthly listeners</div>
+          <div class="stat"><b>290M+</b>Premium users</div>
+          <div class="stat"><b>180+</b>Markets</div>
+          <div class="stat"><b>#1</b>Discovery</div>
+        </div>
+      </div>
+
+      <div class="player">
+        <div class="art"></div>
+        <h2>Now Playing</h2>
+        <p style="color: var(--muted)">Your next favourite song is waiting.</p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2>Why choose Spotify?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Personalised</h3>
+          <p>Recommendations that improve the more you listen.</p>
+        </div>
+        <div class="card">
+          <h3>Everything together</h3>
+          <p>Music, podcasts, videos and audiobooks in one app.</p>
+        </div>
+        <div class="card">
+          <h3>Every device</h3>
+          <p>Continue listening on your phone, TV, laptop or car.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>Can I cancel anytime?</summary>
+        <p>Yes. Premium plans can be cancelled at any time.</p>
+      </details>
+      <details>
+        <summary>Can I download music?</summary>
+        <p>Premium subscribers can download content for offline listening.</p>
+      </details>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <p>
+          © 2026 Spotify — Concept microsite created for an academic MBA
+          project.
+        </p>
+        <p>Figures and testimonials are illustrative unless otherwise noted.</p>
+      </div>
+    </footer>
+  </body>
+</html>

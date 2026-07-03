@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Why Spotify</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b0c0e;
+        --surface: #141519;
+        --surface2: #1d1f24;
+        --line: #2b2e34;
+
+        --green: #1ed760;
+        --gold: #f6c453;
+
+        --text: #fff;
+        --muted: #aeb4bd;
+
+        --radius: 20px;
+        --max: 1180px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: white;
+        font-family: Inter, sans-serif;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: var(--max);
+        margin: auto;
+        padding: 0 24px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Sora, sans-serif;
+        line-height: 1.05;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+
+        background: rgba(12, 12, 14, 0.82);
+        backdrop-filter: blur(18px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        font-family: Sora;
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+
+      .logo {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 50%;
+
+        background: var(--green);
+
+        display: grid;
+        place-items: center;
+      }
+
+      .logo svg {
+        width: 18px;
+        fill: #05230f;
+      }
+
+      nav {
+        display: flex;
+        gap: 34px;
+      }
+
+      nav a {
+        color: var(--muted);
+        transition: 0.3s;
+      }
+
+      nav a:hover,
+      nav .active {
+        color: white;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 1rem 1.8rem;
+
+        border-radius: 999px;
+
+        font-weight: 600;
+
+        transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      }
+      .stat,
+      .testimonialGrid > div,
+      .trustGrid > div {
+        transition: 0.35s;
+      }
+
+      .stat:hover,
+      .testimonialGrid > div:hover,
+      .trustGrid > div:hover {
+        transform: translateY(-8px);
+      }
+
+      .btnGreen {
+        background: var(--green);
+        color: #04210f;
+      }
+
+      .btnGold {
+        background: var(--gold);
+        color: #241600;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 110px 0 90px;
+      }
+
+      .eyebrow {
+        color: var(--green);
+
+        text-transform: uppercase;
+
+        font-family: Sora;
+
+        font-size: 0.8rem;
+
+        letter-spacing: 0.18em;
+
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 5vw, 5rem);
+
+        margin-bottom: 22px;
+      }
+
+      .hero p {
+        max-width: 760px;
+
+        margin: auto;
+
+        font-size: 1.15rem;
+
+        color: var(--muted);
+      }
+
+      .heroButtons {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 18px;
+
+        margin-top: 40px;
+
+        flex-wrap: wrap;
+      }
+
+      .stats {
+        margin-top: 80px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 24px;
+      }
+
+      .stat {
+        background: var(--surface);
+
+        border: 1px solid var(--line);
+
+        padding: 34px;
+
+        border-radius: 20px;
+
+        text-align: center;
+      }
+
+    .stat,
+    .card,
+    .testimonialGrid > div,
+    .trustGrid > div{
+
+        transition:.35s;
+    }
+    
+    .stat:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    border-color:var(--green);
+    }
+
+    .stat:hover,
+    .card:hover,
+    .testimonialGrid > div:hover,
+    .trustGrid > div:hover{
+
+        transform:translateY(-8px);
+
+        box-shadow:0 18px 40px rgba(0,0,0,.35);
+    }
+
+      .stat h2 {
+        font-size: 2.5rem;
+
+        margin-bottom: 10px;
+      }
+
+      .stat p {
+        color: var(--muted);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition: 0.8s;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+      .testimonialGrid,
+      .trustGrid {
+        display: grid;
+        gap: 24px;
+      }
+
+      @media (max-width: 900px) {
+        .testimonialGrid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .trustGrid {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+
+      @media (max-width: 650px) {
+        .trustGrid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      @media (max-width: 900px) {
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        nav {
+          display: none;
+        }
+      }
+
+      @media (max-width: 900px) {
+        section div[style*="grid-template-columns:repeat(2,1fr)"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a href="index.html" class="brand">
+          <div class="logo">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+
+          Spotify
+        </a>
+
+        <nav>
+          <a href="index.html">Home</a>
+
+          <a href="product.html">What's New</a>
+
+          <a href="pricing.html">Plans</a>
+
+          <a href="trust.html" class="active">Why Spotify</a>
+        </nav>
+
+        <a href="pricing.html" class="btn btnGreen"> Start Free </a>
+      </div>
+    </header>
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow reveal">Why Spotify</div>
+
+        <h1 class="card reveal">
+          Loved by millions.<br />
+          Built for everyone.
+        </h1>
+
+        <p class="card reveal">
+          Spotify brings together music, podcasts, audiobooks and video
+          experiences in one place. Whether you're discovering a new artist,
+          listening to your favourite podcast or unlocking exclusive fan
+          experiences, Spotify makes every moment more personal.
+        </p>
+
+        <div class="heroButtons reveal">
+          <a href="pricing.html" class="btn btnGreen"> Start Free </a>
+
+          <a href="pricing.html" class="btn btnGold"> Explore Premium+ </a>
+        </div>
+
+        <!-- ================= STATS ================= -->
+
+        <div class="stats reveal">
+          <div class="stat">
+            <h2 style="color: var(--green)">751M+</h2>
+
+            <p>Monthly active listeners worldwide.</p>
+          </div>
+
+          <div class="stat">
+            <h2>290M+</h2>
+
+            <p>Premium subscribers enjoying ad-free listening.</p>
+          </div>
+
+          <div class="stat">
+            <h2 style="color: var(--gold)">180+</h2>
+
+            <p>Markets where Spotify is available.</p>
+          </div>
+
+          <div class="stat">
+            <h2>#1</h2>
+
+            <p>Personalized music discovery experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHY PEOPLE CHOOSE SPOTIFY ================= -->
+
+    <section>
+      <div class="wrap">
+        <div class="eyebrow reveal">Experience</div>
+
+        <h2 class="card reveal" style="font-size: 2.8rem; margin-bottom: 18px">
+          Why millions choose Spotify.
+        </h2>   
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+          ">
+          <!-- CARD -->
+
+          <div
+            class="card reveal"
+            style="
+              background: var(--surface);
+              border: 1px solid var(--line);
+              padding: 34px;
+              border-radius: 20px;
+            "
+          >
+            <div style="font-size: 2.4rem; margin-bottom: 18px">🎵</div>
+
+            <h3 style="margin-bottom: 14px; font-size: 1.5rem">
+              Music you'll love
+            </h3>
+
+            <p style="color: var(--muted)">
+              Personalized playlists, AI-powered recommendations, millions of
+              tracks and daily mixes designed around your listening habits.
+            </p>
+          </div>
+
+          <!-- CARD -->
+
+          <div
+            class="card reveal"
+            style="
+              background: var(--surface);
+              border: 1px solid var(--line);
+              padding: 34px;
+              border-radius: 20px;
+            "
+          >
+            <div style="font-size: 2.4rem; margin-bottom: 18px">🎙️</div>
+
+            <h3 style="margin-bottom: 14px; font-size: 1.5rem">
+              Podcasts & Video
+            </h3>
+
+            <p style="color: var(--muted)">
+              Watch and listen without leaving the app. From exclusive creator
+              content to educational series and entertainment.
+            </p>
+          </div>
+
+          <!-- CARD -->
+
+          <div
+            class="card reveal"
+            style="
+              background: var(--surface);
+              border: 1px solid var(--line);
+              padding: 34px;
+              border-radius: 20px;
+            "
+          >
+            <div style="font-size: 2.4rem; margin-bottom: 18px">📚</div>
+
+            <h3 style="margin-bottom: 14px; font-size: 1.5rem">Audiobooks</h3>
+
+            <p style="color: var(--muted)">
+              Enjoy bestselling audiobooks alongside your music library without
+              switching between apps.
+            </p>
+          </div>
+
+          <!-- CARD -->
+
+          <div
+            class="card reveal"
+            style="
+              background: var(--surface);
+              border: 1px solid var(--line);
+              padding: 34px;
+              border-radius: 20px;
+            "
+          >
+            <div style="font-size: 2.4rem; margin-bottom: 18px">⭐</div>
+
+            <h3 style="margin-bottom: 14px; font-size: 1.5rem">Premium+</h3>
+
+            <p style="color: var(--muted)">
+              Unlock early concert access, exclusive fan content, artist
+              livestreams, and premium experiences built for superfans.
+            </p>
+          </div>
+        </div>
+    </section>
+    <!-- ================= TESTIMONIALS ================= -->
+
+        <section>
+          <div class="wrap">
+            <div class="eyebrow reveal">Community</div>
+
+            <h2 class="card reveal" style="font-size: 2.8rem; margin-bottom: 18px">
+              What listeners are saying.
+            </h2>
+
+            <p
+              class="card reveal"
+              style="color: var(--muted); max-width: 700px; margin-bottom: 60px"
+            >
+              Millions of people use Spotify every day because it adapts to how
+              they discover, enjoy and share entertainment.
+            </p>
+
+            <div
+              class="testimonialGrid"
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+              "
+            >
+              <!-- Card -->
+
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  border: 1px solid var(--line);
+                  padding: 32px;
+                  border-radius: 20px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 2rem;
+                    margin-bottom: 18px;
+                    color: var(--green);
+                  "
+                >
+                  ★★★★★
+                </div>
+
+                <p style="color: var(--muted); margin-bottom: 28px">
+                  "Spotify has completely changed how I discover music. Every
+                  week I find artists I'd never have discovered elsewhere."
+                </p>
+
+                <h3 style="font-size: 1.1rem">Maya</h3>
+
+                <p style="color: #888">Student • Premium</p>
+              </div>
+
+              <!-- Card -->
+
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  border: 1px solid var(--line);
+                  padding: 32px;
+                  border-radius: 20px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 2rem;
+                    margin-bottom: 18px;
+                    color: var(--green);
+                  "
+                >
+                  ★★★★★
+                </div>
+
+                <p style="color: var(--muted); margin-bottom: 28px">
+                  "I never expected to watch podcasts inside Spotify. Now it's
+                  where I spend most of my commute."
+                </p>
+
+                <h3 style="font-size: 1.1rem">Daniel</h3>
+
+                <p style="color: #888">Podcast Fan</p>
+              </div>
+
+              <!-- Card -->
+
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  border: 1px solid var(--line);
+                  padding: 32px;
+                  border-radius: 20px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 2rem;
+                    margin-bottom: 18px;
+                    color: var(--green);
+                  "
+                >
+                  ★★★★★
+                </div>
+
+                <p style="color: var(--muted); margin-bottom: 28px">
+                  "Premium+ gave me early access to concert tickets. That alone
+                  made the subscription worthwhile."
+                </p>
+
+                <h3 style="font-size: 1.1rem">Chris</h3>
+
+                <p style="color: #888">Premium+</p>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+    <!-- ================= TRUST ================= -->
+        <section>
+          <div class="wrap">
+            <div class="eyebrow reveal">Trust</div>
+
+            <h2 class="card reveal" style="font-size: 2.8rem; margin-bottom: 18px">
+              Designed around transparency.
+            </h2>
+
+            <p
+              class="card reveal"
+              style="color: var(--muted); max-width: 760px; margin-bottom: 60px"
+            >
+              Spotify believes great products should also be trustworthy. That's
+              why subscriptions are flexible, pricing is clear, and your
+              listening experience stays under your control.
+            </p>
+
+            <div
+              class="trustGrid"
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+              "
+            >
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  padding: 28px;
+                  border-radius: 18px;
+                  border: 1px solid var(--line);
+                "
+              >
+                <div style="font-size: 2rem">🔒</div>
+
+                <h3 style="margin: 18px 0 12px">Privacy Controls</h3>
+
+                <p style="color: var(--muted)">
+                  Choose what you share and manage your listening activity
+                  whenever you want.
+                </p>
+              </div>
+
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  padding: 28px;
+                  border-radius: 18px;
+                  border: 1px solid var(--line);
+                "
+              >
+                <div style="font-size: 2rem">💳</div>
+
+                <h3 style="margin: 18px 0 12px">No Hidden Fees</h3>
+
+                <p style="color: var(--muted)">
+                  Transparent pricing with no surprise charges or confusing
+                  subscriptions.
+                </p>
+              </div>
+
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  padding: 28px;
+                  border-radius: 18px;
+                  border: 1px solid var(--line);
+                "
+              >
+                <div style="font-size: 2rem">⚡</div>
+
+                <h3 style="margin: 18px 0 12px">Cancel Anytime</h3>
+
+                <p style="color: var(--muted)">
+                  Upgrade, downgrade or cancel your subscription in just a few
+                  clicks.
+                </p>
+              </div>
+
+              <div
+                class="card reveal"
+                style="
+                  background: var(--surface);
+                  padding: 28px;
+                  border-radius: 18px;
+                  border: 1px solid var(--line);
+                "
+              >
+                <div style="font-size: 2rem">🎁</div>
+
+                <h3 style="margin: 18px 0 12px">Free Trial</h3>
+
+                <p style="color: var(--muted)">
+                  Experience Premium before committing with a one-month free
+                  trial.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CTA ================= -->
+
+        <section>
+          <div class="wrap">
+            <div
+              class="card reveal"
+              style="
+                padding: 70px;
+                border-radius: 30px;
+                background: linear-gradient(
+                  135deg,
+                  rgba(30, 215, 96, 0.15),
+                  rgba(246, 196, 83, 0.12)
+                );
+                border: 1px solid var(--line);
+                text-align: center;
+              "
+            >
+              <h2 style="font-size: 3rem; margin-bottom: 20px">
+                Ready to hear what's next?
+              </h2>
+
+              <p
+                style="
+                  max-width: 700px;
+                  margin: auto;
+                  color: var(--muted);
+                  margin-bottom: 35px;
+                "
+              >
+                Join hundreds of millions of listeners discovering music,
+                podcasts, audiobooks and exclusive fan experiences every day.
+              </p>
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  gap: 18px;
+                  flex-wrap: wrap;
+                "
+              >
+                <a href="pricing.html" class="btn btnGreen"> Start Free </a>
+
+                <a href="pricing.html" class="btn btnGold"> Get Premium+ </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+
+        <div class="wrap">
+
+            <p>Spotify isn't just another streaming service...</p>
+
+            <div class="grid">
+            ...
+            </div>
+
+        </div>
+
+        </section>
+        
+    <footer style="border-top: 1px solid var(--line); padding: 60px 0">
+      <div class="wrap">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <div class="brand">
+              <div class="logo">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+
+              Spotify
+            </div>
+
+            <p style="margin-top: 18px; max-width: 320px; color: var(--muted)">
+              The world's leading platform for music, podcasts, audiobooks and
+              creator experiences.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 60px; flex-wrap: wrap">
+            <div>
+              <h4 style="font-family: Sora; margin-bottom: 15px">Product</h4>
+
+              <p><a href="product.html">What's New</a></p>
+
+              <p><a href="pricing.html">Premium</a></p>
+
+              <p><a href="pricing.html">Premium+</a></p>
+            </div>
+
+            <div>
+              <h4 style="font-family: Sora; margin-bottom: 15px">Company</h4>
+
+              <p><a href="trust.html">Why Spotify</a></p>
+
+              <p><a href="index.html">Home</a></p>
+
+              <p><a href="#">Support</a></p>
+            </div>
+
+            <div>
+              <h4 style="font-family: Sora; margin-bottom: 15px">Plans</h4>
+
+              <p><a href="pricing.html">Free</a></p>
+
+              <p><a href="pricing.html">Premium</a></p>
+
+              <p><a href="pricing.html">Premium+</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 0.9rem;
+          "
+        >
+          <div>© 2026 Spotify — Concept microsite.</div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
